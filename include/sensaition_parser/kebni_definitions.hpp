@@ -13,7 +13,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include "kebni_driver/kebni_sensor_ids.hpp"
+#include "sensaition_parser/kebni_sensor_ids.hpp"
 
 namespace kebni {
 

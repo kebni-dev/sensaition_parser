@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "kebni_driver/kebni_definitions.hpp"
-#include "kebni_driver/kebni_driver.hpp"
+#include "sensaition_parser/kebni_definitions.hpp"
+#include "sensaition_parser/kebni_driver.hpp"
 
 using namespace kebni;
 

@@ -1,4 +1,4 @@
-# kebni_driver
+# sensaition_parser
 
 A parser for binary data from the [**Kebni SensAItion**](https://www.kebni.com/) IMU/AHRS/INS sensors. 
 It reads binary data and decodes it into physically meaningful measurements as defined the SensAItion User Manual (D0000447) from Kebni AB.
@@ -6,7 +6,7 @@ Please contact Kebni for access to the User Manual and for any support questions
 
 ## How to build
 ```bash
-cd kebni_driver
+cd sensaition_parser
 mkdir build
 cd build
 cmake ..
@@ -17,19 +17,19 @@ cmake --build .
 Include the following in the ```CMakeLists.txt``` file of your project:
 
 ```bash
-add_subdirectory(external/kebni-driver)
+add_subdirectory(external/sensaition_parser)
 add_executable(my_program main.cpp)
-target_link_libraries(my_program PRIVATE Kebni::driver)
+target_link_libraries(my_program PRIVATE Kebni::sensaition_parser)
 ```
 
 ## How to run unit tests
 How to build the project with the unit tests and run them:
 
 ```bash
-cd kebni_driver
+cd sensaition_parser
 mkdir build
 cd build
-cmake .. -DKEBNI_DRIVER_BUILD_TESTS=ON
+cmake .. -DSENSAITION_PARSER_BUILD_TESTS=ON
 cmake --build .
 test/test_parser
 ```

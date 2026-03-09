@@ -6,9 +6,9 @@ add_executable(test_parser
 )
 
 target_link_libraries(test_parser
-  PRIVATE Kebni::driver
+  PRIVATE Kebni::sensaition_parser
           GTest::gtest
           GTest::gtest_main
 )
 
-add_test(NAME kebni_driver_tests COMMAND test_parser)
+add_test(NAME kebni_parser_tests COMMAND test_parser)
