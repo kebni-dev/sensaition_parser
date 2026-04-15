@@ -35,10 +35,22 @@ test/test_parser
 ```
 
 ## Typical usage
-A typical usage would be to connect the Data UART of a SensAItion INS sensor to a serial port of your system and configure it with the following Data UART configuration string:
+A typical usage would be to connect the Data UART of a SensAItion INS sensor to a serial port
+of your system and configure it with the following Data UART configuration string:
 
 ```
 o0002s484204214224230000010020030100110120130200210220230300310320330400410420430500510520533103113123133203213223233303313323333403413423434C04C14C24C34D04D14D24D34E04E14E24E34F04F14F24F35905915925935A05A15A25A35B05B15B25B3X
 ```
 
-This string defines which measurements are included in the binary message, and in which order. Then one can create a class that inherits from ```KebniDriver```, configure it with the same string and implement the ```onMeasurements()``` callback to handle any parsed messages. When data arrives on the serial port, it is fed to ```processByte()``` to be parsed.
+This string defines which measurements are included in the binary message, and in which order.
+
+Create an instance each of PacketAssembler and SensorDataBackend. Also implement the
+PacketAssembler callback interface, PacketProcessor. The use of class PacketAssembler is optional,
+it is a convenience class gathering UART data before calling SensorDataBackend::parseDataUartData.
+
+Call SensorDataBackend::parseDataUartConfigString with above configuration string,
+and receive a DataSelection and a DataUartParseInfo object.
+
+Then feed PacketAssembler with UART input data, and handle each packet via the callback
+interface. In the callback method, call SensorDataBackend::parseDataUartData followed by
+SensorDataBackend::getSensorSample to get a SensorSample object to fetch the actual data from.
