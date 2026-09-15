@@ -34,6 +34,8 @@ cmake --build .
 test/test_parser
 ```
 
+Unittests requires a boost installation which can be passed to cmake via -DBOOST_ROOT=<path_to_boost>
+
 ## Typical usage
 A typical usage would be to connect the Data UART of a SensAItion INS sensor to a serial port
 of your system and configure it with the following Data UART configuration string:
